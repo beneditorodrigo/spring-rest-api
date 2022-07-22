@@ -1,6 +1,7 @@
 package com.beneditorodrigo.logistica.domain.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -15,4 +16,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	
 	//conversao por parte do nome existente
 	List<Cliente> findByNomeContaining(String nome);
+	
+	//consulta por email
+	Optional<Cliente> findByEmail(String email);
 }
