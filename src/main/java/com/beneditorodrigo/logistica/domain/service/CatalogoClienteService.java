@@ -12,17 +12,22 @@ import com.beneditorodrigo.logistica.domain.repository.ClienteRepository;
 public class CatalogoClienteService {
 
 	@Autowired
-	ClienteRepository clienteRepository;
+	private ClienteRepository clienteRepository;
+	
+	public Cliente buscar(Long clienteId) {
+		return clienteRepository.findById(clienteId)
+				.orElseThrow(() -> new NegocioException("Cliente não encontrado"));
+	}
 	
 	@Transactional
 	public Cliente salvar(Cliente cliente) {
-		
+		System.err.println("Entrou no método");
 		boolean emailEmUso = clienteRepository.findByEmail(cliente.getEmail())
 				.stream()
 				.anyMatch(clienteExistente -> !clienteExistente.equals(cliente));
 		
-		if(emailEmUso) {
-			throw new NegocioException("Já existe um cliente com esse e-mail.");
+		if (emailEmUso) {
+			throw new NegocioException("Já existe um cliente cadastrado com este e-mail.");
 		}
 		
 		return clienteRepository.save(cliente);
@@ -32,4 +37,5 @@ public class CatalogoClienteService {
 	public void excluir(Long clienteId) {
 		clienteRepository.deleteById(clienteId);
 	}
+	
 }

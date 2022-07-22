@@ -27,6 +27,7 @@ public class ClienteController {
 	
 	@Autowired
 	private ClienteRepository clienteRepository;
+	@Autowired
 	private CatalogoClienteService catalogoClienteService;
 	
 	@GetMapping()
@@ -48,6 +49,7 @@ public class ClienteController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente adcionar(@Valid @RequestBody Cliente cliente) {
 		//return clienteRepository.save(cliente);
+		System.err.println("Entrou na chamada!");
 		return catalogoClienteService.salvar(cliente);
 	}
 	
