@@ -21,7 +21,6 @@ public class CatalogoClienteService {
 	
 	@Transactional
 	public Cliente salvar(Cliente cliente) {
-		System.err.println("Entrou no método");
 		boolean emailEmUso = clienteRepository.findByEmail(cliente.getEmail())
 				.stream()
 				.anyMatch(clienteExistente -> !clienteExistente.equals(cliente));

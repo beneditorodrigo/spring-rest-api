@@ -30,7 +30,7 @@ public class ClienteController {
 	@Autowired
 	private CatalogoClienteService catalogoClienteService;
 	
-	@GetMapping()
+	@GetMapping() 
 	public List<Cliente> listar() {
 		
 		return clienteRepository.findAll();
