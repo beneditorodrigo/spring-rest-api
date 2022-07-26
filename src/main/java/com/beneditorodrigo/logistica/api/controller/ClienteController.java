@@ -49,7 +49,6 @@ public class ClienteController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente adcionar(@Valid @RequestBody Cliente cliente) {
 		//return clienteRepository.save(cliente);
-		System.err.println("Entrou na chamada!");
 		return catalogoClienteService.salvar(cliente);
 	}
 	
