@@ -8,7 +8,8 @@ import com.beneditorodrigo.logistica.domain.model.StatusEntrega;
 public class EntregaModel {
 
 	private Long id;
-	private String nomeCliente;
+	// private String nomeCliente;
+	private ClienteResumoModel cliente;
 	private DestinatarioModel destinatario;
 	private BigDecimal taxa;
 	private StatusEntrega status;
@@ -23,16 +24,24 @@ public class EntregaModel {
 		this.id = id;
 	}
 
-	public String getNomeCliente() {
-		return nomeCliente;
-	}
-
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
-	}
+//	public String getNomeCliente() {
+//		return nomeCliente;
+//	}
+//
+//	public void setNomeCliente(String nomeCliente) {
+//		this.nomeCliente = nomeCliente;
+//	}
 
 	public DestinatarioModel getDestinatario() {
 		return destinatario;
+	}
+
+	public ClienteResumoModel getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(ClienteResumoModel cliente) {
+		this.cliente = cliente;
 	}
 
 	public void setDestinatario(DestinatarioModel destinatario) {
